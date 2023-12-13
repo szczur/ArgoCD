@@ -18,7 +18,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: szczur123/szczur123/panda-frontend:latest
+      - image: szczur123/panda-frontend:latest
         name: panda-frontend
         ports:
         - containerPort: 5000
