@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: proxy
-  name: proxy
+    app: frontend
+  name: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: proxy
+      app: frontend
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: proxy
+        app: frontend
     spec:
       containers:
       - image: szczur123/szczur123/panda-frontend:latest
