@@ -4,11 +4,15 @@ kubectl create svc clusterip backend-service --tcp 5001:5001 --dry-run=client -o
 kubectl create deployment frontend --image=szczur123/szczur123/panda-frontend:latest --port 5000 --dry-run=client -o yaml > deployment.yaml
 kubectl create svc nodeport frontend-service --tcp 5000:5000 --node-port=30080 --dry-run=client -o yaml > frontend-service.yaml
 
-
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ArgoCD: Uz5rH02kPmjeHxgc
 kubectl -n argocd port-forward svc/argocd-server 8080:443 --address 0.0.0.0
 
+kubectl -n argocd apply -f backend_app.yml
+kubectl -n argocd apply -f fronend_app.yml
+
 kubectl -n argocd get app
 kubectl -n argocd get app **** -o yaml
+
+
 
